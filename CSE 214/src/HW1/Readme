@@ -1,0 +1,27 @@
+CSE 214: Homework #1 Complexity Analysis and Abstract Data Types
+Question 1a and 1b
+Wendy Hu
+Student id#: 111560523
+
+To whomever is reading this, please read carefully....
+
+Because I was unsure of the format for this homework I included the same code in several places and some of the sample testing code 
+from the hw1 pdf to be used for testing:
+
+Question 1 part a and b 's code can be found in the folder named HW1, the file: Question1.java
+The rest of question 1 a, b and c are in the pdf named Wendy_Hu_111560523_HW1 pages 1,2,3
+
+Question 2 because I was unsure if I was supposed to code the parts I coded them in the file: Question2.java which is also found
+in the folder named HW1.
+Comments above each function should tell which part of the question I am coding for a, b or c
+The screenshots of my code are also pasted in the pdf Wendy_Hu_111560523_HW1 page 4
+
+Question 3 code are in the folder named Question3 and the files include the required class/files: Card.java and Player.java.
+I have also included a file: CardSampleTesting.java that I replicated from the HW1 pdf to test my code
+
+Question 4 code are in the folder named Question4 and the files include the required class/files: Car.java, GPS.java, 
+Location.java, and Testing.java
+
+I have also included comments above most of my functions to help explain what I am doing....
+
+Thank you for reading this, have a good day :)

@@ -1,0 +1,65 @@
+CSE 214: Homework #2 Linked List, Stack and Queues
+Wendy Hu
+Student id#: 111560523
+
+To whomever is reading this please read carefully...
+
+1. The answer to question1 can be found in the folder named HW2, in the folder Question1 titled Question1.java
+The LinkedList that I used to implement Question1 can be found in the folder, HW2 and the linkedlist is titled LinkedList.java
+To use the text test file one would have to insert the location of the test file into the line that says
+Scanner input = new Scanner(new File("in1.txt")); I have made a comment on that line for reference.
+In Question1.java the program would work with the text test files under the assumption that there is no space 
+between the first test case and the second, for example:
+1 (Test case 1)
+10 3
+a b c d e f g h i j
+10 2 4 5 7 3 2 9 11 6
+2 (Test case 2 no space between)
+I am having a problem with question1 as the program works in giving an output but
+gives the wrong output from each "bucket"
+Sorry for the inconvenience.
+
+2. The answer to question2 can be found in the folder named HW2, in the folder Question2 titled Question2.java
+The LinkedList that I used to implement Question2 is also found in the folder HW2, titled LinkedList.java 
+To use the text test file one would have to insert the location of the test file into the line that says
+Scanner input = new Scanner(new File("in2.txt")); I have made a comment on that line for reference.
+Question2 would only work with the test case text file assuming that there is no space between the first test
+case and the second test case for example: 
+1 (Test case 1)
+1 2 3 4 5 6 7
+177 175 165 172 161 170 164
+2 (Test case 2 no space between them)
+Sorry for the inconvenience.
+
+3. The solution to question3 can be found in the folder named HW2, in the folder Question3 titled Quetion3.java
+To use the text test file one would have to insert the location of the test file into the line that says
+Scanner input = new Scanner(new File("in3.txt")); I have made a comment on that line for reference.
+In Question3.java the program takes input from the text test file, then creates a leakystack and pushes
+all the "operations" in the test case into the leaky stack, using a forloop.
+As I wasn't sure to what data type will be inputed "op_one" I assumed that the input 
+type would be string. So, the leakystack right now could only deal with strings.
+The LeakyStack class can be found in folder HW2, Question3, titled LeakyStack.java
+As to test our question3 the program will only work if the test file has no space between each cases 
+for example:
+1 (testcase 1)
+3
+op_one op_two op_three op_four op_five
+2 (testcase 2 no space)
+Sorry for the inconvenience.
+
+4. The solution to question4 can be found in the folder HW2, Question4, titled Question4.java. The ListQueue that was used in question4
+can be found in the folder HW2, titled ListQueue.java
+To use the text test file one would have to insert the location of the test file into the line that says
+Scanner input = new Scanner(new File("in4.txt")); I have made a comment on that line for reference.
+In Question4.java the program would only work with the test case text file assuming that there is no space between the first test
+case and the second test case for example:
+1 (Testcase 1)
+6 5
+1 2 2 3 4 5
+2 (Testcase 2 no space between)
+The program does not give the correct output 
+Sorry for the inconvenience.
+
+
+Thank you for reading through this and have a nice day,
+Wendy Hu
