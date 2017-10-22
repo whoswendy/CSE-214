@@ -1,6 +1,7 @@
 package Classwork.Heap;
 public class Heap {
 	
+	//THIS IS A MAX HEAP JUST CHANGE ALL > TO < FOR MIN HEAP
 	private int[] heapArr;
 	private int heapSize;
 	private int maxSize;
@@ -27,8 +28,69 @@ public class Heap {
 		else return false;
 	}
 	
-	public void insert(int d){
+	public void insert(int d) throws Exception{
+		int position;
+		if(isFull())
+		{
+			throw new Exception();
+		}else
+		{
+			heapSize++;
+			heapArr[heapSize-1] = d;
+			position = heapSize-1;
+			//This is for max heap for min heap change the > to <
+			while(position > 0 && heapArr[position] > heapArr[(position-1)/2]){
+				//checks if the new inserted data is larger than its parent at position (i-1)/2 with the new
+				//data at i
+				swap(position,(position-1)/2);
+				position = (position -1)/2;
+			}
+		}
 		
+	}
+
+	private void swap(int i, int j) {
+		// TODO Auto-generated method stub
+		int temp;
+		temp = heapArr[i];
+		heapArr[i] = heapArr[j];
+		heapArr[j] = temp;
+	}
+	
+	public int delete(int d) throws Exception{
+		int answer;
+		if(isEmpty()){
+			throw new Exception();
+		}
+		else{
+			answer = heapArr[0];
+			heapArr[0] = heapArr[heapSize -1];
+			heapSize--;
+			heapify();
+			return answer;
+		}
+	}
+
+	private void heapify() {
+		// TODO Auto-generated method stub
+		int pos = 0;
+		int childPos;
+		while(pos*2 +1 < heapSize){
+			childPos = pos*2+1;
+			if(childPos < heapSize -1 && heapArr[childPos +1] > heapArr[childPos])//For Min Heap just change the > to <
+			{
+				childPos++;
+				//checking if the right child is greater than the left child
+			}
+			if(heapArr[pos] > heapArr[childPos])
+				//For Min Heap just change the > to <
+			{
+				//checking if the parent or root is greater than its child
+				return;
+			}
+			swap(pos, childPos);//swapping the parent and child if child is > than parent
+			pos = childPos;
+		}
 	}
 
 }
