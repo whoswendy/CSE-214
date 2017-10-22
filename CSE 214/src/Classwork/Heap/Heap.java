@@ -28,11 +28,16 @@ public class Heap {
 		else return false;
 	}
 	
-	public void insert(int d) throws Exception{
+	public void insert(int d){
 		int position;
 		if(isFull())
 		{
-			throw new Exception();
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}else
 		{
 			heapSize++;
@@ -57,10 +62,11 @@ public class Heap {
 		heapArr[j] = temp;
 	}
 	
-	public int delete(int d) throws Exception{
+	public int delete(){
 		int answer;
 		if(isEmpty()){
-			throw new Exception();
+			System.out.println("IS EMPTY");
+			return -1;
 		}
 		else{
 			answer = heapArr[0];
@@ -90,6 +96,13 @@ public class Heap {
 			}
 			swap(pos, childPos);//swapping the parent and child if child is > than parent
 			pos = childPos;
+		}
+	}
+	
+	public void print(){
+		for(int i = 0; i< heapSize; i++)
+		{
+			System.out.print(heapArr[i] + " ");
 		}
 	}
 
