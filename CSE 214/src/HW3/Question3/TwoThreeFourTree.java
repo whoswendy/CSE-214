@@ -34,6 +34,7 @@ public class TwoThreeFourTree {
 		return false;
 	}
 	
+
 	public void insert(int data){
 		if(root == null){
 			root = new TwoThreeFourNode();

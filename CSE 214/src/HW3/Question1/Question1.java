@@ -1,5 +1,9 @@
 package HW3.Question1;
-
+/*CSE 214: Homework #3 Binary Search Tree, Heap, 2-3-4 Tree
+ * Question 1
+ * Wendy Hu
+ * Student id#: 111560523
+*/
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,11 +35,12 @@ public class Question1 {
 			}
 		}
 		
-		for(int i = 0; i< data.size();i++)
-			System.out.println(""+data.get(i));
 		
-		
-		System.out.println("This is numOfNodes " + numOfNodes );
-		System.out.println("This is the data "+ datas);
+		BinaryTree tree = new BinaryTree(numOfNodes);
+		for(int i = 0; i< data.size(); i++){
+			tree.insert(data.get(i));
+		}
+		//tree.inorder();
+		tree.changeToBST();
 	}
 }
