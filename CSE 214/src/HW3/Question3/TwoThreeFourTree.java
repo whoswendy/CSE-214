@@ -107,27 +107,5 @@ public class TwoThreeFourTree {
 		}
 		
 	}
-	
-	public void inorder(){
-		inorder(root);
-	}
 
-	private void inorder(TwoThreeFourNode node){
-		if(node.isLeaf())
-			return;
-		else if(node.getNumItems() == 3){
-			inorder(node.getChild(0));
-			node.getChild(0).print();
-			inorder(node.getChild(1));
-			node.getChild(1).print();
-			inorder(node.getChild(2));
-			node.getChild(2).print();
-		}else{
-			inorder(node.getChild(0));
-			node.getChild(0).print();
-			inorder(node.getChild(1));
-		}
-		
-		
-	}
 }

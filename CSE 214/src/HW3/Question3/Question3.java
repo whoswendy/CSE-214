@@ -13,45 +13,25 @@ public class Question3 {
 	
 	public static void main(String[] args){
 		
+		TwoThreeFourTree tree = new TwoThreeFourTree();
+		
 		Scanner in = new Scanner(System.in);
+		System.out.println("Please enter the operation 1 for insertion and 3 for search, delete and traversal does not work");
 		while(in.hasNextLine()){
-			String temp = in.nextLine();
-			ArrayList<Integer> tempArr = new ArrayList<Integer>();
-			String tempStr = "";
-			for(int i = 0; i< temp.length(); i++){
-				if(temp.charAt(i) == ' ')
-				{
-					tempArr.add(Integer.parseInt(tempStr));
-					tempStr = "";
-				}else
-					if(i == temp.length() -1)
-					{
-						tempStr += temp.charAt(i);
-						tempArr.add(Integer.parseInt(tempStr));
-					}
-					else
-						tempStr += temp.charAt(i);
-			}
+			String enter = in.nextLine();
+			System.out.println("Please enter the number to be inserted or searched");
+			String num = in.nextLine();
 			
-			TwoThreeFourTree tree = new TwoThreeFourTree();
-			if(tempArr.get(0) == 1){
-				System.out.println(""+tempArr.get(1));
-				int key = tempArr.get(1);
-				tree.insert(key);
+			if(enter.equals("1")){
+				tree.insert(Integer.parseInt(num));
+				System.out.println(num + " was inserted");
 			}
-			else if(tempArr.get(0) == 2){
-				System.out.println("Sorry but do not have delete function");
-			}
-			else if(tempArr.get(0) == 3){
-				System.out.println(""+tempArr.get(1));
-				int key = tempArr.get(1);
-				tree.search(key);
-			}
-			else if(tempArr.get(0) == 4 || tempArr.get(0) == 5 || tempArr.get(0) == 6 ){
-				System.out.println("Sorry but do not have traversal function");
-			}
-
+			else if(enter.equals("2")) System.out.println("Sorry but no delete function");
+			else if(enter.equals("3")) tree.search(Integer.parseInt(num));
+			else if(enter.equals("4") || enter.equals("5") || enter.equals("6") ) 
+				System.out.println("Sorry but no traversal function");
+			
+			System.out.println("Please enter the operation 1 for insertion and 3 for search, delete and traversal does not work");
 		}
 	}
-
 }
