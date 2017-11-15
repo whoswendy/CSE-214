@@ -65,34 +65,35 @@ public class Question1 {
 		
 		Hashtable<Integer, Integer> table = new Hashtable<Integer,Integer>(length);
 		
-		boolean notFound = true;
 		for(int i = 0; i< arr2.size(); i++){
-			for(int j = i +1; j < arr2.size(); j++){
-				table.put(arr2.get(i), arr2.get(j));
-				if(found(table,arr2.get(i),target)){
-					notFound = false;
-					twoSums(i, j);
+			if(!table.containsKey(arr2.get(i)))
+				table.put(arr2.get(i), i);//{key,element} key = num element = index
+		}
+		
+		findIndices(table,arr2,target);
+			
+	}
+
+	private static void findIndices(Hashtable<Integer, Integer> table, ArrayList<Integer> arr, int target) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i< arr.size(); i++){
+			int temp = arr.get(i);
+			int secondNum = target - temp;
+			if(table.containsKey(secondNum))
+			{
+				int b = table.get(secondNum);
+				if(temp > secondNum){
+					System.out.println("["+b+","+i+"]");
+					return;
+				}else{
+					System.out.println("["+i+","+b+"]");
 					return;
 				}
 			}
-			table.remove(arr2.get(i));
 		}
-		if(notFound)
-			System.out.println("[-1, -1]");
-		
+		System.out.println("[-1,-1]");
 	}
 
-	private static void twoSums(int i, int j) {
-		// TODO Auto-generated method stub
-		System.out.print("[" + i + "," + j + "]");
-	}
-
-	private static boolean found(Hashtable<Integer, Integer> table, int num, int target) {
-		// TODO Auto-generated method stub
-		if(table.get(num) + num == target)
-			return true;
-		return false;
-	}
 	
 
 }
