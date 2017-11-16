@@ -63,37 +63,77 @@ public class Question1 {
 			n--;
 		}
 		
-		Hashtable<Integer, Integer> table = new Hashtable<Integer,Integer>(length);
+		Hashtable<Integer, ArrayList<Integer>> table = new Hashtable<Integer,ArrayList<Integer>>(length);
+		Hashtable<Integer, Integer> freq = new Hashtable<Integer,Integer>(length);
 		
 		for(int i = 0; i< arr2.size(); i++){
-			if(!table.containsKey(arr2.get(i)))
-				table.put(arr2.get(i), i);//{key,element} key = num element = index
+			int num = 1;
+			if(freq.containsKey(arr2.get(i))){
+				System.out.println(""+arr2.get(i));
+				num += 1;
+			}
+			freq.put(arr2.get(i), num);
+		}
+		System.out.println(freq.entrySet());
+		
+		for(int i = 0; i< arr2.size();i++){
+			ArrayList<Integer> pos = new ArrayList<Integer>();
+			pos.add(i);
+			table.put(arr2.get(i),pos);
 		}
 		
-		findIndices(table,arr2,target);
-			
+		for(int i = 0; i< arr2.size(); i++){
+			if(freq.get(arr2.get(i)) > 1){
+				ArrayList<Integer> tempArr = table.get(arr2.get(i));
+				if(!tempArr.contains(i))
+					tempArr.add(i);
+				table.put(arr2.get(i), tempArr);
+			}
+		}
+		
+		System.out.println(table.entrySet());
+		
+		findIndices(table,freq,arr2, target);
+
+
 	}
 
-	private static void findIndices(Hashtable<Integer, Integer> table, ArrayList<Integer> arr, int target) {
+	private static void findIndices(Hashtable<Integer, ArrayList<Integer>> table, Hashtable<Integer, Integer> freq,
+			ArrayList<Integer> arr, int target) {
 		// TODO Auto-generated method stub
-		for(int i = 0; i< arr.size(); i++){
-			int temp = arr.get(i);
-			int secondNum = target - temp;
-			if(table.containsKey(secondNum))
-			{
-				int b = table.get(secondNum);
-				if(temp > secondNum){
-					System.out.println("["+b+","+i+"]");
+		int[] indices = {-1,-1};
+		for(int i = 0; i<arr.size(); i++){
+			int a = arr.get(i);
+			int num = target - a;
+			if(a == num && freq.containsKey(a) && freq.get(a) > 1){
+				if(table.get(a).get(0) > table.get(a).get(1)){
+					indices[0] = table.get(a).get(1);
+					indices[1] = table.get(a).get(0);
+					System.out.println("[" + indices[0] + "," + indices[1] + "]");
 					return;
 				}else{
-					System.out.println("["+i+","+b+"]");
+					indices[0] = table.get(a).get(0);
+					indices[1] = table.get(a).get(1);		
+					System.out.println("[" + indices[0] + "," + indices[1] + "]");
+					return;
+				}
+			}
+			else if(table.containsKey(num)){
+				int b = table.get(num).get(0);
+				if(b > i){
+					indices[0] = b;
+					indices[1] = i;
+					System.out.println("[" + indices[0] + "," + indices[1] + "]");
+					return;
+				}
+				else{
+					indices[0] = i;
+					indices[1] = b;
+					System.out.println("[" + indices[0] + "," + indices[1] + "]");
 					return;
 				}
 			}
 		}
-		System.out.println("[-1,-1]");
+		System.out.println("[" + indices[0] + "," + indices[1] + "]");
 	}
-
-	
-
 }
