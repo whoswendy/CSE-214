@@ -24,7 +24,7 @@ public class Question1 {
 			{
 				arr.add(Integer.parseInt(temp));
 				temp = "";
-			}else
+			}else{
 				if(i == nums.length() -1)
 				{
 					temp += nums.charAt(i);
@@ -32,6 +32,7 @@ public class Question1 {
 				}
 				else
 					temp += nums.charAt(i);
+			}
 		}
 
 		int size = arr.get(0);
@@ -56,25 +57,19 @@ public class Question1 {
 					temp2 += inputs.charAt(i);
 		}
 		
-		int n = size;
-		int length = 0;
-		while(n > 0){
-			length += (n-1);
-			n--;
-		}
 		
-		Hashtable<Integer, ArrayList<Integer>> table = new Hashtable<Integer,ArrayList<Integer>>(length);
-		Hashtable<Integer, Integer> freq = new Hashtable<Integer,Integer>(length);
+		Hashtable<Integer, ArrayList<Integer>> table = new Hashtable<Integer,ArrayList<Integer>>(size);
+		Hashtable<Integer, Integer> freq = new Hashtable<Integer,Integer>(size);
 		
 		for(int i = 0; i< arr2.size(); i++){
 			int num = 1;
 			if(freq.containsKey(arr2.get(i))){
-				System.out.println(""+arr2.get(i));
+				//System.out.println(""+arr2.get(i));
 				num += 1;
 			}
 			freq.put(arr2.get(i), num);
 		}
-		System.out.println(freq.entrySet());
+		//System.out.println(freq.entrySet());
 		
 		for(int i = 0; i< arr2.size();i++){
 			ArrayList<Integer> pos = new ArrayList<Integer>();
@@ -91,7 +86,7 @@ public class Question1 {
 			}
 		}
 		
-		System.out.println(table.entrySet());
+		//System.out.println(table.entrySet());
 		
 		findIndices(table,freq,arr2, target);
 
