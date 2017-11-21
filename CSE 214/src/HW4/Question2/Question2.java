@@ -66,7 +66,6 @@ public class Question2 {
 			}
 		}
 		
-		Hashtable<Integer,ArrayList<Integer>> table = new Hashtable<Integer,ArrayList<Integer>>(size);
 		Hashtable<Integer, Integer> freq = new Hashtable<Integer,Integer>(size);
 		
 		for(int i = 0; i< arr2.size(); i++){
@@ -78,7 +77,6 @@ public class Question2 {
 			freq.put(arr2.get(i), num);
 		}
 
-		//System.out.println(table.entrySet());
 		//System.out.println(freq.entrySet());
 		
 		//1 10 4 3 2 5 0 1 9 5

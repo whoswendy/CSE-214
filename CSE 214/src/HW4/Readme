@@ -24,7 +24,7 @@ in the array with a single space between each number ex:
 line 1 = 10 5
 line 2 = 1 10 4 3 2 5 0 1 9 5 (a space between each number)
 After clicking enter the output should be outputted. However, I am having a problem
-getting the correct output for inputs with duplicated values....
+getting the correct output for inputs with duplicated values...
 
 Thank you for taking the time to read this and have a good day,
 Wendy Hu
