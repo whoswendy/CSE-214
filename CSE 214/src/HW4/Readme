@@ -11,7 +11,9 @@ and int2 is the target. After clicking enter please input the numbers in the arr
 with a single space between each number ex:
 line 1 = 4 9
 line 2 = 2 7 22 25 (a space separating each integer)
-After clicking enter, the output should be outputted.
+After clicking enter, the output should be outputted. To test the test case you would
+have to run the java file and input in the console each time for each test case. In other words
+you could only test one test case at a time.
 
 2.My solution to question 2 can be found in the folder HW4, folder titled Question2
 the file Question2.java I created an object called SumSet to store the numbers
@@ -25,6 +27,8 @@ line 1 = 10 5
 line 2 = 1 10 4 3 2 5 0 1 9 5 (a space between each number)
 After clicking enter the output should be outputted. However, I am having a problem
 getting the correct output for inputs with duplicated values...
+To test the test case only one test case can be tested at a time. To test another test case
+one would have to run the java file again.
 
 Thank you for taking the time to read this and have a good day,
 Wendy Hu
