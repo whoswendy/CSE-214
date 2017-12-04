@@ -2,6 +2,7 @@ package HW5.Question1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*CSE 214: Homework #5 Graph
@@ -14,13 +15,14 @@ public class Question1 {
 	
 	private static int trials = 0;
 	private static int cases;
+	private static int numPaths;
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		
 		Scanner input = new Scanner(new File("C:\\Users\\huwen\\Desktop\\in1.txt"));
 		cases = Integer.parseInt(input.nextLine());
 		
-		System.out.println("" + cases);
+		//System.out.println("" + cases);
 		
 		while(trials < cases){
 			int n = Integer.parseInt(input.nextLine());
@@ -37,15 +39,16 @@ public class Question1 {
 				int col = 0;
 				for(int i = 0; i< temp.length(); i++){
 					if(temp.charAt(i) == '1'){
-						matrix[row][col] = 1;
+						matrix[row][col] = -1;
 					}
 					col++;
 				}
 			}
-			printMatrix(matrix);
+			//printMatrix(matrix);
 			findRoute(matrix);
+			System.out.println(""+numPaths);
 			trials++;
-			System.out.println("");
+			//System.out.println("");
 		}
 
 		
@@ -53,7 +56,53 @@ public class Question1 {
 
 	private static void findRoute(int[][] matrix) {
 		// TODO Auto-generated method stub
+		numPaths = 0;
+		int n = matrix.length;
+		if(matrix[0][0] == 1 || matrix[n-1][n-1] == 1){
+			System.out.println(""+numPaths);
+			return;
+		}else{
+			countPath(matrix);
+
+		}
+	}
+
+	private static void countPath(int[][] matrix) {
+		// TODO Auto-generated method stub
+		int n = matrix.length;
 		
+		for(int i = 0; i<n; i++){
+			if(matrix[i][0] == 0){
+				matrix[i][0] = 1;
+			}else
+				break;
+		}
+		
+		for(int j = 0; j< n; j++){
+			if(matrix[0][j] == 0){
+				matrix[0][j] = 1;
+			}else
+				break;
+		}
+		
+		for(int i = 1; i< n; i++){
+			for(int j = 1; j< n; j++){
+				if(matrix[i][j] == -1){
+					continue;
+				}
+				
+				if(matrix[i-1][j] > 0){
+					matrix[i][j] = (matrix[i][j] + matrix[i-1][j]);
+				}
+				
+				if(matrix[i][j-1] > 0){
+					matrix[i][j] = (matrix[i][j] + matrix[i][j-1]);
+				}
+			
+			}
+		}
+		
+		numPaths = matrix[n-1][n-1];
 	}
 
 	private static void printMatrix(int[][] matrix) {
