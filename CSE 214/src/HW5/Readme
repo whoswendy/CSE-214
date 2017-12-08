@@ -1,0 +1,18 @@
+CSE 214: Homework #5 Graphs
+Wendy Hu
+Student id#: 111560523
+
+To whomever is reading this,
+
+1.My solution to question1 is is found in the folder Hw5 in folder Question1
+named Question1.java. To use the text test file one would have to insert 
+the location of the test file into the line that says:
+Scanner input = new Scanner(new File("in1.txt")); 
+I have made a comment on that line for reference.
+The program only works if the text file is in the format that was
+described in the the homework6 pdf.
+After one run the program, the outputs, number of paths possible in each case, is printed
+in the console.
+
+Thank you for taking the time to read this,
+Wendy Hu

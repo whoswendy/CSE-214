@@ -19,7 +19,7 @@ public class Question1 {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		
-		Scanner input = new Scanner(new File("C:\\Users\\huwen\\Desktop\\in1.txt"));
+		Scanner input = new Scanner(new File("C:\\Users\\huwen\\Desktop\\in1.txt"));//INSERT FILE NAME HERE!
 		cases = Integer.parseInt(input.nextLine());
 		
 		//System.out.println("" + cases);
@@ -39,7 +39,7 @@ public class Question1 {
 				int col = 0;
 				for(int i = 0; i< temp.length(); i++){
 					if(temp.charAt(i) == '1'){
-						matrix[row][col] = -1;
+						matrix[row][col] = 1;
 					}
 					col++;
 				}
@@ -63,27 +63,57 @@ public class Question1 {
 			return;
 		}else{
 			countPath(matrix);
+			//findPaths(matrix, 0, 0, numPaths); does not work :(
+			//System.out.println(""+numPaths); 
 
 		}
+	}
+
+	private static void findPaths(int[][] matrix, int i, int j, int numPaths2) {
+		// TODO Auto-generated method stub
+		int n = matrix.length;
+		if(i == n-1 && j == n-1){
+			numPaths++;
+		}
+		else if(i < n-1 && matrix[i][j] != 1){
+			findPaths(matrix, i +1, j, numPaths);
+		}
+		else if(i > 0 && matrix[i][j] != 1){
+			findPaths(matrix, i-1, j, numPaths);
+		}
+		else if(j > 0 && matrix[i][j] != 1){
+			findPaths(matrix, i, j -1, numPaths);
+		}
+		else if(j < n-1 && matrix[i][j] != 1){
+			findPaths(matrix, i, j + 1, numPaths);
+		}else{
+			return;
+		}
+
 	}
 
 	private static void countPath(int[][] matrix) {
 		// TODO Auto-generated method stub
 		int n = matrix.length;
 		
+		//checks 1st row
 		for(int i = 0; i<n; i++){
-			if(matrix[i][0] == 0){
-				matrix[i][0] = 1;
+			if(matrix[0][i] == 0){
+				matrix[0][i] = 1;
 			}else
 				break;
 		}
+		//printMatrix(matrix);
 		
-		for(int j = 0; j< n; j++){
-			if(matrix[0][j] == 0){
-				matrix[0][j] = 1;
+		//checks 1st col
+		for(int j = 1; j< n; j++){
+			if(matrix[j][0] == 0){
+				matrix[j][0] = 1;
 			}else
 				break;
 		}
+		//printMatrix(matrix);
+		
 		
 		for(int i = 1; i< n; i++){
 			for(int j = 1; j< n; j++){
@@ -91,12 +121,14 @@ public class Question1 {
 					continue;
 				}
 				
-				if(matrix[i-1][j] > 0){
+				if(matrix[i-1][j] >= 0){
 					matrix[i][j] = (matrix[i][j] + matrix[i-1][j]);
+					//printMatrix(matrix);
 				}
 				
-				if(matrix[i][j-1] > 0){
+				if(matrix[i][j-1] >= 0){
 					matrix[i][j] = (matrix[i][j] + matrix[i][j-1]);
+					//printMatrix(matrix);
 				}
 			
 			}
