@@ -7,6 +7,7 @@ public class Graph {
 	
 	private int size;
 	private int[][] matrix;
+	private ArrayList<Integer> path = new ArrayList<Integer>();
 	
 	public Graph(int n){
 		size = n;
@@ -68,18 +69,32 @@ public class Graph {
 		//print(distance);
 		System.out.println(distance[destination]);
 		if(distance[destination] != 0){
-			System.out.print(source+ " ");
-			printPath(parent,destination);			
+			path.add(source);
+			printPath(parent,destination);	
+			path.add(destination);
+			printPath(path);
 		}
 	}
 	
+	private void printPath(ArrayList<Integer> path) {
+		// TODO Auto-generated method stub
+		for(int i=0; i< path.size()-1;i++ )
+		{
+			if(i != path.size() -2)
+				System.out.print(path.get(i)+"->");
+			else
+				System.out.print(path.get(i)+"");
+		}
+	}
+
 	private void printPath(int[] parent, int destination) {
 		// TODO Auto-generated method stub
 		if(parent[destination] == -1)
 			return;
 		printPath(parent,parent[destination]);
 		
-		System.out.print(destination+" ");
+		path.add(destination);
+		//System.out.print(destination+" ");
 	}
 
 	private void print(int[] distance) {
