@@ -39,7 +39,7 @@ public class Question1 {
 				int col = 0;
 				for(int i = 0; i< temp.length(); i++){
 					if(temp.charAt(i) == '1'){
-						matrix[row][col] = 1;
+						matrix[row][col] = -1;
 					}
 					col++;
 				}
