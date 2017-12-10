@@ -1,0 +1,21 @@
+CSE 214: Extra Credit Homework - Graphs
+Wendy Hu
+Student id#: 111560523
+
+To whomever is reading this,
+
+The solution to the extra credit question can be found in the folder ExtraCredit, 
+titled Homework.java and Graph.java. To run the program please
+input the test case text file in the line:
+Scanner input = new Scanner(new File("in1.txt"));
+I have also made a comment on the line for reference.
+The format of the test case text file must strictly follow what was mentioned
+in the extra credit pdf. There must only be one space between each number
+in the input matrix and no spaces following the last number on each row.
+If there are extra spaces there would be a runtime error, so sorry for the
+inconvenience. Then the output would be outputted in the console.
+The code for the solution of finding the shortest path could be found in the 
+file Graph.java.
+
+Thank you for reading this and thank you for your work this past semester,
+Wendy Hu

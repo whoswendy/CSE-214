@@ -1,6 +1,13 @@
 package ExtraCredit;
 
+/*CSE 214: Extra Credit Homework - Graphs
+ * Question 1 class
+ * Wendy Hu
+ * Student id#: 111560523
+*/
+
 import java.util.ArrayList;
+
 import java.util.Hashtable;
 
 public class Graph {
@@ -73,6 +80,8 @@ public class Graph {
 			printPath(parent,destination);	
 			path.add(destination);
 			printPath(path);
+		}else{
+			System.out.println("No path found");
 		}
 	}
 	
