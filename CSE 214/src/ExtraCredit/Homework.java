@@ -77,7 +77,7 @@ public class Homework {
 				}
 			}
 			
-			matrix.printGraph();
+			//matrix.printGraph();
 			matrix.dijkstra_algor(source, destination);
 			System.out.println("");
 			trials++;

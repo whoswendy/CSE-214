@@ -28,6 +28,8 @@ public class Graph {
 	
 	public void dijkstra_algor(int source, int destination){
 		int[] distance = new int[size];
+		int[] parent = new int[size];
+		parent[0] = -1;
 		Hashtable<Integer,Integer> vMinusS = new Hashtable<Integer,Integer>(size);
 		
 		for(int i = 0; i< size; i++)
@@ -41,7 +43,7 @@ public class Graph {
 		
 		for(int i = 0; i< size; i++){
 			int next = findMin(distance,vMinusS);
-			System.out.println("next" + next);
+			//System.out.println("next" + next);
 			if(!s.contains(next))
 				s.add(next);
 			vMinusS.remove(next);
@@ -59,13 +61,27 @@ public class Graph {
 				if(distance[next] + getEdge(next,v) < distance[v]){
 					distance[v] = distance[next] + getEdge(next,v);
 					vMinusS.put(v,distance[v]);
+					parent[v] = next;
 				}
 			}
 		}
-		print(distance);
+		//print(distance);
 		System.out.println(distance[destination]);
+		if(distance[destination] != 0){
+			System.out.print(source+ " ");
+			printPath(parent,destination);			
+		}
 	}
 	
+	private void printPath(int[] parent, int destination) {
+		// TODO Auto-generated method stub
+		if(parent[destination] == -1)
+			return;
+		printPath(parent,parent[destination]);
+		
+		System.out.print(destination+" ");
+	}
+
 	private void print(int[] distance) {
 		// TODO Auto-generated method stub
 		for(int i = 0; i<distance.length;i++)
